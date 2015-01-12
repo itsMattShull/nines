@@ -89,8 +89,6 @@ function toggleClass(element, className){
   document.getElementById('webperf-resourceInfo').innerHTML += list;
 });
 
-var jsonUrl = "";
-
 //Add webpage test results
 function getWebPageTestUrl() {
 	document.getElementById('wpt-firstByte').innerHTML = "waiting...";
