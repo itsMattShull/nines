@@ -1,6 +1,6 @@
 # nines
 A web performance tool aimed to help developers find critical performance issues.
-This repo can be demoed at [mattshull.com/perf/](https://www.mattshull.com/perf/).
+This repo can be demoed at [mattshull.com/perf/](http://www.mattshull.com/perf/).
  
  
  
@@ -20,7 +20,7 @@ Include `<script src="js/webPerfResults.js"></script>` and `<link rel="styleshee
 
 
 ##Usage
- 
+Nines is a tool that helps developers pinpoint critical performance issues using performance statistics from the Navigation Timing API, Resource Timing API, average page load speeds for all users that have visited the page, and an assesment of the page on a 3G network using WebPageTest.org.
  
  
  
