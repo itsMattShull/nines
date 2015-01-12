@@ -129,3 +129,5 @@ function getWebPageTestUrl() {
   webpagetestxhr.send();
 }
 getWebPageTestUrl();
+
+window.onload = init;
