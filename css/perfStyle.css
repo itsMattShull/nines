@@ -1,0 +1,72 @@
+html, body {
+    margin:0;
+    height:100%;
+}
+#webperf-wrapper {
+    position:fixed;
+    display:flex;
+    display: -webkit-flex;
+    width:100%;
+    background:black;
+    bottom:0;
+    left:0;
+    text-align:center;
+}
+#webperf-client, #webperf-server, #webperf-resources, #webperf-webpagetest {
+    display:inline-block;
+    width:100%;
+    position:relative;
+}
+.webperf-label {
+    font-size:14px;
+    font-weight:700;
+    color:white;
+}
+.webperf-value {
+    font-size:14px;
+    color:white;
+}
+.webperf-green {
+    color:#32CD32;
+}
+.webperf-red {
+    color:#f00;
+}
+#webperf-resourceInfo, #webperf-webpagetestInfo {
+	position:absolute;
+	top:-250px;
+	left:0;
+	width:100%;
+	height:250px;
+	overflow:auto;
+	overflow-x:hidden;
+	background:white;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	padding:0;
+}
+#webperf-webpagetestInfo {
+	height:100px;
+	top:-100px;
+}
+#webperf-resourceInfo > li, #webperf-webpagetestInfo > li {
+	display:flex;
+	display: -webkit-flex;
+	width:100%;
+}
+#webperf-resourceInfo > li > span, #webperf-webpagetestInfo > li > span {
+	display:inline-block;
+	width:100%;
+	border:1px solid black;
+	overflow:hidden;
+}
+#webperf-webpagetestInfo > li > span {
+	border:0;
+}
+#webperf-webpagetestInfo > li > span > div{
+	border:1px solid black;
+}
+.webperf-hide {
+	display:none;
+}
