@@ -1,4 +1,7 @@
 var totalBudget = 2;
+var liveSite = "mattshull.com"+.location.pathname;
+//Since this script will be on a dev site you'll need to add the hostname of the site manually
+//This will fetch the live site statisitics from the database.
 
 var html = '<section id="webperf-wrapper"><div id="webperf-client"><div class="webperf-label">Current</div><div class="webperf-value"><span id="webperf-clientBackend"></span> / <span id="webperf-clientFrontend"></span> / <span id="webperf-clientTotal"></span> secs</div></div><div id="webperf-server"><div class="webperf-label">Page Average</div><div class="webperf-value"><span id="webperf-serverBackend"></span> / <span id="webperf-serverFrontend"></span> / <span id="webperf-serverTotal"></span> secs</div></div><div id="webperf-resources"><div class="webperf-label">Resources</div><ul id="webperf-resourceInfo" class="webperf-hide"><li><span style="background-color:lightgray; font-weight:700;">File</span><span style="background-color:lightgray; font-weight:700;">Duration</span></li></ul></div><div id="webperf-webpagetest"><div class="webperf-label">WebPageTest.org (3G)</div><ul id="webperf-webpagetestInfo" class="webperf-hide"><li><span><div style="background-color:lightgray; font-weight:700;">First Byte:</div><div style="background-color:lightgray; font-weight:700;">Start Render:</div><div style="background-color:lightgray; font-weight:700;">Load Time:</div><div style="background-color:lightgray; font-weight:700;">Speed Index:</div><div style="background-color:lightgray; font-weight:700;">DOM Elements:</div></span><span id="webperf-wptResults"><div id="wpt-firstByte"></div><div id="wpt-startRender"></div><div id="wpt-loadTime"></div><div id="wpt-speedIndex"></div><div id="wpt-domElements"></div></span></li></ul></div></section>';
 document.body.innerHTML += html;
@@ -11,7 +14,6 @@ function init() {
    var clientBackend = ((navigationTiming.responseEnd-navigationTiming.requestStart)/1000).toFixed(2);
    var clientFrontend = ((now-navigationTiming.domLoading)/1000).toFixed(2);
    var clientTotal = ((now-navigationTiming.navigationStart)/1000).toFixed(2);
-   var url = window.location.host + window.location.pathname; 
 
    document.getElementById('webperf-clientBackend').innerHTML = clientBackend;
    document.getElementById('webperf-clientFrontend').innerHTML = clientFrontend;
@@ -28,7 +30,7 @@ function init() {
       backend : clientBackend,
       frontend : clientFrontend,
       total : clientTotal,
-      url : url
+      url : liveSite
     }
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -99,7 +101,7 @@ function getWebPageTestUrl() {
 	
   var webpagetestxhr = new XMLHttpRequest();
 
-  webpagetestxhr.open("GET", "./getWebPageTest.php?url="+window.location.host+window.location.pathname+"", true);
+  webpagetestxhr.open("GET", "./getWebPageTest.php?url="+liveSite+"", true);
   webpagetestxhr.onreadystatechange = function() {
       if (webpagetestxhr.readyState == 4 && webpagetestxhr.status == 200) {
           var resp = JSON.parse(webpagetestxhr.responseText);
