@@ -11,6 +11,7 @@ html, body {
     bottom:0;
     left:0;
     text-align:center;
+    padding: 6px 0px;
 }
 #webperf-client, #webperf-server, #webperf-resources, #webperf-webpagetest {
     display:inline-block;
@@ -19,7 +20,7 @@ html, body {
 }
 .webperf-label {
     font-size:14px;
-    font-weight:700;
+    font-weight:500;
     color:white;
 }
 .webperf-value {
