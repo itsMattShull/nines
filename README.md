@@ -15,7 +15,11 @@ webPerfResults.js is used by the developer on the development site.  It will gat
 Include `<script src="js/submitPerfResults.js"></script>` in the pages you wish to track.
 
 ####For Development Sites
-Include `<script src="js/webPerfResults.js"></script>` and `<link rel="stylesheet" type="text/css" href="css/perfStyle.css">`  in the pages you wish to track.
+Include `<script src="js/webPerfResults.js"></script>` and `<link rel="stylesheet" type="text/css" href="css/perfStyle.css">`  in the pages you wish to track.  
+
+Edit line 2 of webPerfResults.js to reflect the correct hostname `var liveSite = "mattshull.com"+.location.pathname;`.
+
+Change webperfSubmit.php to include the correct database information on Line 9.  Also change getWebPageTest.php to include the correct database information on Line 5 and include the WebPageTest.org API key in the url on Line 15 where it says `{{INSERT-API-KEY-HERE}}`.
 
 
 
