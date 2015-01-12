@@ -25,6 +25,14 @@ Change webperfSubmit.php to include the correct database information on Line 9. 
 
 ##Usage
 Nines is a tool that helps developers pinpoint critical performance issues using performance statistics from the Navigation Timing API, Resource Timing API, average page load speeds for all users that have visited the page, and an assesment of the page on a 3G network using WebPageTest.org.
+
+There are four sections of the performance bar, located and fixed at the bottom of the screen.  **Current** refers to your performance statistics and **Page Average** refers to the average page load speed of the statistics gathered in the database.  Each of those columns as three numbers seperated by /'s.  The first number refers to the load time of the server connection and response, the second number refers to the frontend load time (from start to load the page to completion), and the third number is the total load time for that page.
+
+The total load times will be in green font when the time is within the "performance budget" and will be red when the time is over the "performance budget".  You can set the performance budget in Line 1 of webPerfResults.js: `var totalBudget = 2;`.
+
+**Resources** will show the file name and load time of each asset within the page.  Simply click on **Resources** to show and hide the box.  The list will scroll if there are numerous resources in the document.
+
+**WebPageTest.org (3G)** will show statistics for the page via the WebPageTest.org API.  It's set to show results from a 3G network and will display time to first byte, time the page started rendering, total load time, speed index, and the number of DOM elements in the document.  Simply click on the **WebPageTest.org (3G)** to show and hide the box.
  
  
  
