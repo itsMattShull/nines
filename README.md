@@ -7,10 +7,10 @@ There are two seperate scripts with Nines.  submitPerfResults.js is installed in
 
 webPerfResults.js is used by the developer on the development site.  It will gather and submit the users information but also show they performance information at the bottom of the page.  There's no need to include submitPerfResults.js if webPerfResults.js is installed.
 
-###For Live Sites
+####For Live Sites
 Include `<script src="js/submitPerfResults.js"></script>` in the pages you wish to track.
 
-###For Development Sites
+####For Development Sites
 Include `<script src="js/webPerfResults.js"></script>` and `<link rel="stylesheet" type="text/css" href="css/perfStyle.css">`  in the pages you wish to track.
 
 ##Usage
