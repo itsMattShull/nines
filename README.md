@@ -2,7 +2,7 @@
 
 # nines
 A web performance tool aimed to help developers find critical performance issues.
-This repo can be demoed at [mattshull.com/perf/](http://www.mattshull.com/perf/).
+This repo can be demoed at [mattshull.com/perf/](http://mattshull.com/perf/).
  
  
  
