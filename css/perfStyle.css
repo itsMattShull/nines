@@ -35,7 +35,7 @@ html, body {
 }
 #webperf-resourceInfo, #webperf-webpagetestInfo {
 	position:absolute;
-	top:-250px;
+	top:-256px;
 	left:0;
 	width:100%;
 	height:250px;
@@ -49,7 +49,7 @@ html, body {
 }
 #webperf-webpagetestInfo {
 	height:100px;
-	top:-100px;
+	top:-106px;
 }
 #webperf-resourceInfo > li, #webperf-webpagetestInfo > li {
 	display:flex;
