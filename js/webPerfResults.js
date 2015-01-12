@@ -91,18 +91,23 @@ var jsonUrl = "";
 
 //Add webpage test results
 function getWebPageTestUrl() {
+	document.getElementById('wpt-firstByte').innerHTML = "waiting...";
+	    document.getElementById('wpt-speedIndex').innerHTML = "waiting...";
+	    document.getElementById('wpt-loadTime').innerHTML = "waiting...";
+	    document.getElementById('wpt-startRender').innerHTML = "waiting...";
+	    document.getElementById('wpt-domElements').innerHTML = "waiting...";
+	
   var webpagetestxhr = new XMLHttpRequest();
 
   webpagetestxhr.open("GET", "./getWebPageTest.php?url="+window.location.host+window.location.pathname+"", true);
   webpagetestxhr.onreadystatechange = function() {
       if (webpagetestxhr.readyState == 4 && webpagetestxhr.status == 200) {
           var resp = JSON.parse(webpagetestxhr.responseText);
-          console.log(resp);
           if (resp.statusCode==400) {
           	console.log("Too many requests made for the day.");
           }
           else if (resp.statusCode==200) {
-          	data=resp.data.average.firstView;
+          	data=resp.data.runs['1'].firstView;
             var firstByte = (data.TTFB/1000).toFixed(2);
             var speedIndex = data.SpeedIndex;
             var loadTime = (data.loadTime/1000).toFixed(2);
@@ -116,7 +121,8 @@ function getWebPageTestUrl() {
             document.getElementById('wpt-domElements').innerHTML = domElements;
           }
           else {
-            //run getWebPageTestResults();
+          	console.log("Try again...");
+            setTimeout(function(){getWebPageTestUrl()},5000);
           }
       }
   }
