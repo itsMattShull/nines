@@ -43,3 +43,5 @@ function init() {
     xhr.open('POST', './webperfSubmit.php', true);
     xhr.send(JSON.stringify(json));
 }
+
+window.onload = init;
