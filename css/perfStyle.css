@@ -13,7 +13,7 @@ html, body {
     text-align:center;
     padding: 6px 0px;
 }
-#webperf-client, #webperf-server, #webperf-resources, #webperf-webpagetest {
+#webperf-client, #webperf-server, #webperf-resources, #webperf-webpagetest, #webperf-wpt-images {
     display:inline-block;
     width:100%;
     position:relative;
@@ -33,7 +33,7 @@ html, body {
 .webperf-red {
     color:#f00;
 }
-#webperf-resourceInfo, #webperf-webpagetestInfo {
+#webperf-resourceInfo, #webperf-webpagetestInfo, #webperf-wpt-images-content, #webperf-countries {
 	position:absolute;
 	top:-256px;
 	left:0;
@@ -47,9 +47,32 @@ html, body {
 	border-right: 1px solid black;
 	padding:0;
 }
+
+#webperf-countries {
+	height:300px;
+	top:-306px;
+}
+
+#webperf-countries > li {
+	height:auto;
+	width:100%;
+	display:flex;
+	display: -webkit-flex;
+}
+
+#webperf-countries > li > span {
+	width:50%;
+	border:1px solid black;
+	padding:5px 0px;
+}
+
+#webperf-countries > li > span:nth-child(odd) {
+    background-color: lightgray;
+}
+
 #webperf-webpagetestInfo {
-	height:100px;
-	top:-106px;
+	height: 225px;
+	top: -231px;
 }
 #webperf-resourceInfo > li, #webperf-webpagetestInfo > li {
 	display:flex;
@@ -67,7 +90,34 @@ html, body {
 }
 #webperf-webpagetestInfo > li > span > div{
 	border:1px solid black;
+	padding:5px 0px;
 }
+
+#webperf-wpt-images-content {
+	height: 300px;
+	top: -306px;
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+
+#webperf-wpt-images-content > li {
+	display:inline-block;
+	height:100%;
+	width:85%;
+	border:1px solid black;
+}
+
+#webperf-wpt-images-content > li > div{
+	height:auto;
+	text-align: center;
+	padding:5px 0px;
+}
+
+#webperf-wpt-images-content > li > div img{
+	max-width: 100%;
+}
+
 .webperf-hide {
 	display:none;
 }
