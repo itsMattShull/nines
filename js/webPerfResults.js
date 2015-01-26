@@ -11,8 +11,8 @@ function init() {
    var now = new Date().getTime();
   
    //get client page speed
-   var clientBackend = ((navigationTiming.responseEnd-navigationTiming.requestStart)/1000).toFixed(2);
-   var clientFrontend = ((now-navigationTiming.domLoading)/1000).toFixed(2);
+   var clientBackend = ((navigationTiming.responseEnd-navigationTiming.navigationStart)/1000).toFixed(2);
+   var clientFrontend = ((now-navigationTiming.responseEnd)/1000).toFixed(2);
    var clientTotal = ((now-navigationTiming.navigationStart)/1000).toFixed(2);
 
    document.getElementById('webperf-clientBackend').innerHTML = clientBackend;
