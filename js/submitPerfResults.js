@@ -1,12 +1,12 @@
 function init() {
    var navigationTiming = performance.timing;
    var now = new Date().getTime();
+   var url = "mattshull.com"+location.pathname;
   
    //get client page speed
    var clientBackend = ((navigationTiming.responseEnd-navigationTiming.requestStart)/1000).toFixed(2);
    var clientFrontend = ((now-navigationTiming.domLoading)/1000).toFixed(2);
    var clientTotal = ((now-navigationTiming.navigationStart)/1000).toFixed(2);
-   var url = window.location.host + window.location.pathname; 
 
    document.getElementById('webperf-clientBackend').innerHTML = clientBackend;
    document.getElementById('webperf-clientFrontend').innerHTML = clientFrontend;
