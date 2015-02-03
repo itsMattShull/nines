@@ -36,5 +36,6 @@ CREATE TABLE `webpagetest_results` (
   `link` varchar(500) NOT NULL,
   `json` varchar(500) NOT NULL,
   `datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `url` varchar(800) NOT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
