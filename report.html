@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nines Reporting</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+    <script>
+        $(function() {
+            $( ".datepicker" ).datepicker();
+        });
+    </script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        var response="";
+        var i=0;
+
+        //send client page speed to server & get average page speed back
+        function getInfo() {
+            var from=$("#startDate").val();
+            var to=$("#endDate").val();
+            var theurl=$("#urlList").val();
+            var thecountry=$("#countryList").val();
+
+            $.ajax({url:'./getReport.php?from='+from+'&to='+to+'&url='+theurl+'&country='+thecountry,
+                success: function(data) {
+                    response=JSON.parse(data);
+                    if (i!=0) {
+                        drawChart();
+                        drawChart1();
+                        drawChart2();
+                        drawChart3();
+                    }
+                    i++;
+                }
+            });
+
+            google.load("visualization", "1", {packages:["corechart"]});
+            google.setOnLoadCallback(drawChart);
+            google.setOnLoadCallback(drawChart1);
+            google.setOnLoadCallback(drawChart2);
+            google.setOnLoadCallback(drawChart3);
+
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable(response.median);
+
+                var options = {
+                    title: 'Median Load Time',
+                    hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+                    vAxis: {title: 'secs', minValue: 0}
+                };
+
+                var chart = new google.visualization.AreaChart(document.getElementById('medianrum'));
+                chart.draw(data, options);
+            }
+
+            function drawChart1() {
+                var data = google.visualization.arrayToDataTable(response.medianwpt);
+
+                var options = {
+                    title: 'Median WebPageTest Data',
+                    hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+                    vAxis: {title: 'secs', minValue: 0}
+                };
+
+                var chart = new google.visualization.AreaChart(document.getElementById('medianwpt'));
+                chart.draw(data, options);
+            }
+
+            function drawChart2() {
+                var data = google.visualization.arrayToDataTable(response.pagesize);
+
+                var options = {
+                    title: 'Median Page Size',
+                    hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+                    vAxis: {title: 'Size in kB'}
+                };
+
+                var chart = new google.visualization.AreaChart(document.getElementById('pagesize'));
+                chart.draw(data, options);
+            }
+
+            function drawChart3() {
+                var data = google.visualization.arrayToDataTable(response.domelements);
+
+                var options = {
+                    title: 'Median DOM Elements',
+                    hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+                    vAxis: {title: '# of Elements'}
+                };
+
+                var chart = new google.visualization.AreaChart(document.getElementById('domelements'));
+                chart.draw(data, options);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align:center;">
+        <select id="urlList">
+            <option value="">Choose URL</option>
+        </select>&nbsp;&nbsp;&nbsp;&nbsp;
+        <select id="countryList">
+            <option value="">Choose Country</option>
+        </select>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="datepicker" id="startDate" placeholder="Start Date">&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" class="datepicker" id="endDate" placeholder="End Date">&nbsp;&nbsp;&nbsp;&nbsp;
+        <button id="submitDates">Submit</button>
+    </div>
+    <div id="medianrum" style="width: 900px; height: 500px; margin:0 auto;"></div>
+    <div id="medianwpt" style="width: 900px; height: 500px; margin:0 auto;"></div>
+    <div id="pagesize" style="width: 900px; height: 500px; margin:0 auto;"></div>
+    <div id="domelements" style="width: 900px; height: 500px; margin:0 auto;"></div>
+
+    <script type="text/javascript">
+        $.ajax({url:'./getInfo.php',
+            success: function(newdata) {
+                var data=JSON.parse(newdata);
+                $.each(data.urls, function(i, item) {
+                    $("#urlList").append("<option value='"+data.urls[i]+"'>"+data.urls[i]+"</option");
+                });
+                $.each(data.countries, function(i, item) {
+                    $("#countryList").append("<option value='"+data.countries[i]+"'>"+data.countries[i]+"</option");
+                });
+            }
+        });
+        getInfo();
+        $("#submitDates").on("click", function() {getInfo();});
+    </script>
+</body>
+</html>
