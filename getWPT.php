@@ -43,7 +43,6 @@ function makeRequest($clientURL) {
 	}
 }
 
-makeRequest("http://tricities.aristotle.net/");
-makeRequest("http://tricities.aristotle.net/events");
-makeRequest("http://tricities.aristotle.net/hotels");
+makeRequest("http://mattshull.com/perf");
+makeRequest("http://mattshull.com");
 ?>
