@@ -1,7 +1,7 @@
 ![alt text](http://www.mattshull.com/perf/logo.png "Logo")
 
 # nines
-A web performance tool aimed to help developers find critical performance issues.
+A web performance tool aimed to help developers find critical performance issues.  The vision is to create a performance tool that allows artists, developers, and project managers to see the impact that their changes have made on a sites performance.  Its accesible from the actual website, instead of having to look at performance data on another website.
 This repo can be demoed at [mattshull.com/perf/](http://mattshull.com/perf/).
 Reporting can be demoed at [mattshull.com/perf/report.html](http://mattshull.com/perf/report.html)
  
