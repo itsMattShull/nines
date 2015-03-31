@@ -4,7 +4,13 @@
 A web performance tool aimed to help developers find critical performance issues.  The vision is to create a performance tool that allows artists, developers, and project managers to see the impact that their changes have made on a sites performance.  Its accesible from the actual website, instead of having to look at performance data on another website.
 This repo can be demoed at [mattshull.com/perf/](http://mattshull.com/perf/).
 Reporting can be demoed at [mattshull.com/perf/report.html](http://mattshull.com/perf/report.html)
- 
+
+##Featured In:
+[Perf.Rocks](http://www.perf.rocks/tools/)
+[Smashing Magazine Facebook](https://www.facebook.com/smashmag/posts/10153110235587490)
+[Perf-Tooling.Today](http://perf-tooling.today/tools)
+[WebDesignerDepot.com](http://www.webdesignerdepot.com/2015/03/50-incredible-freebies-for-web-designers-march-2015/)
+[ByPeople.com](http://www.bypeople.com/web-development-performance-tool/)
  
  
  
