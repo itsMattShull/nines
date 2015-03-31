@@ -7,9 +7,13 @@ Reporting can be demoed at [mattshull.com/perf/report.html](http://mattshull.com
 
 ##Featured In:
 [Perf.Rocks](http://www.perf.rocks/tools/)
+
 [Smashing Magazine Facebook](https://www.facebook.com/smashmag/posts/10153110235587490)
+
 [Perf-Tooling.Today](http://perf-tooling.today/tools)
+
 [WebDesignerDepot.com](http://www.webdesignerdepot.com/2015/03/50-incredible-freebies-for-web-designers-march-2015/)
+
 [ByPeople.com](http://www.bypeople.com/web-development-performance-tool/)
  
  
