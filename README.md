@@ -5,7 +5,7 @@ A web performance tool aimed to help developers find critical performance issues
 This repo can be demoed at [mattshull.com/perf/](http://mattshull.com/perf/).
 Reporting can be demoed at [mattshull.com/perf/report.html](http://mattshull.com/perf/report.html)
 
-##Featured In:
+## Featured In:
 [Perf.Rocks](http://www.perf.rocks/tools/)
 
 [Smashing Magazine Facebook](https://www.facebook.com/smashmag/posts/10153110235587490)
@@ -19,32 +19,32 @@ Reporting can be demoed at [mattshull.com/perf/report.html](http://mattshull.com
  
  
  
-##Installation
+## Installation
 There are two seperate scripts with Nines.  livePerf.js is installed into the live site to gather and submit performance information for the user as they view the website.  No information is shown to the user about performance.
 
 devPerf.js is used by the developer on the development site.  It will gather and submit the users/developers performance information but also show performance information at the bottom of the page.  There's no need to include livePerf.js if devPerf.js is installed.
 
 Include the CSS file perfStyle.css (found in the CSS folder) into your CSS.
 
-####For Live Sites
+#### For Live Sites
 Include `<script src="js/livePerf.js"></script>` in the pages you wish to track.
 
-####For Development Sites
+#### For Development Sites
 Include `<script src="js/devPerf.js"></script>` and `<link rel="stylesheet" type="text/css" href="css/perfStyle.css">`  in the pages you wish to track.  
 
 Edit line 2 of devPerf.js and line 4 of livePerf.js to reflect the correct hostname `var liveSite = "mattshull.com"+.location.pathname;`.
 
 Change webperfSubmit.php to include the correct database information on line 3.  Also change getWPT.php to include the correct database information on line 3 and include the WebPageTest.org API key in the url on Line 6, 19, and 32 where it says `{{ENTER API KEY HERE}}`.
 
-####Database
+#### Database
 Use the createDatabases.sql file to create the necessary databases.
 
-####Reporting
+#### Reporting
 To install reporting, add the correct database information in getReport.php (on lines 18, 141, 286, and 389) and do the same for getInfo.php (on line 3).  Then set up cron jobs to run getWPT.php and checkWPT.php as often as you'd like it to test the performance of your website.  Once data has been collected simply view report.html to see the results.
 
 
 
-##Usage
+## Usage
 Nines is a tool that helps developers pinpoint critical performance issues using performance statistics from the Navigation Timing API, Resource Timing API, median page load speeds for all users that have visited the page, an assesment of the page using WebPageTest.org, and by providing reporting via Google Charts.
 
 There are five sections of the performance bar, located and fixed at the bottom of the screen.  **Current** refers to your performance statistics and **Page Median** refers to the median page load speed of the statistics gathered in the database. Click on **Page Median** to see median results from individual countries.  Each of those columns as three numbers seperated by /'s.  The first number refers to the backend load time, the second number refers to the frontend load time, and the third number is the total load time for that page.
@@ -62,7 +62,7 @@ The total load times will be in green font when the time is within the "performa
  
  
  
-##License
+## License
 The MIT License (MIT)
 
 Copyright (c) 2015 Matt Shull
